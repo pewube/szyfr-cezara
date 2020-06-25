@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+    name="description"
+    content="Szyfr Cezara - szyfrator, deszyfrator"
+  />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Szyfr Cezara</title>
+    <link rel="shortcut icon" href="./img/favpwb.png" type="image/png" />
+    <meta name="color-scheme" content="light">
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <article>
+        <h1 class="header__title">Szyfr Cezara</h1>
+        <p class="header__text">
+          <strong>Szyfr Cezara</strong> (zwany też <em>szyfrem przesuwającym</em>, <em>kodem
+            Cezara</em>  lub <em>przesunięciem Cezariańskim</em>) to jedna z najprostszych technik
+          szyfrowania. Jest to rodzaj szyfru podstawieniowego, w którym każda
+          litera tekstu jawnego (niezaszyfrowanego) zastępowana jest inną,
+          oddaloną od niej o stałą liczbę pozycji w alfabecie, literą (<em>szyfr
+            monoalfabetyczny</em>), przy czym kierunek zamiany musi być zachowany. Nie
+          rozróżnia się przy tym liter dużych i małych.
+        </p>
+        <p class="header__text">
+          Nazwa szyfru pochodzi od Juliusza Cezara, który prawdopodobnie używał
+          tej techniki do komunikacji ze swymi przyjaciółmi.
+        </p>
+        <p class="header__text">
+          Współcześnie szyfru Cezara używa się z przesunięciem 13 (ROT13),
+          będącego prostym i szybkim sposobem na ukrycie treści.
+        </p>
+        <p class="header__text">
+          <em>źródło: wikipedia.org</em>
+        </p>
+      </article>
+    </header>
+    <main>
+      <article class="encrypter">
+        <h1 class="encrypter__title">Szyfrator</h1>
+      <form class="form" action="">
+        <label class="form__label" for="text">Wprowadź tekst:</label>
+        <textarea class="form__text" name="text" id="text"></textarea>
+
+        <div class="form__options-panel">
+          <div class="form__select--wrapper">
+          <label class="form__label form__label--select" for="rot"
+            >Wybierz przesunięcie (ROT):
+            <select class="form__select" id="rot">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13" selected>13</option>
+            </select>
+          </div>
+          </label>
+          <div class="form__radio-wrapper">
+            <input
+              type="radio"
+              name="letters-type"
+              class="form__radio__letters-nevermind form__radio"
+              id="letters-nevermind"
+              value = "false"
+              checked
+            />
+            <label
+              class="form__label form__label--radio"
+              for="letters-nevermind"
+              >Wielkość liter nie ma znaczenia</label
+            >
+          </div>
+          <div class="form__radio-wrapper">
+            <input
+              type="radio"
+              name="letters-type"
+              class="form__radio__letters-upper-lower form__radio"
+              id="letters-upper-lower"
+              value="true"
+            />
+            <label
+              class="form__label form__label--radio"
+              for="letters-upper-lower"
+              >Wielkość liter ma znaczenie</label
+            >
+          </div>
+          <div class="form__radio-wrapper">
+            <input
+              type="radio"
+              name="alphabet-type"
+              class="form__radio__alphabet-en form__radio"
+              id="alphabet-en"
+              value = "en"
+              checked
+            />
+            <label class="form__label form__label--radio" for="alphabet-en"
+              >Alfabet angielski</label
+            >
+          </div>
+          <div class="form__radio-wrapper">
+            <input
+              type="radio"
+              name="alphabet-type"
+              class="form__radio__alphabet-pl form__radio"
+              id="alphabet-pl"
+              value = "pl"
+            />
+            <label class="form__label form__label--radio" for="alphabet-pl"
+              >Alfabet polski</label
+            >
+          </div>
+          <div class="form__radio-wrapper">
+            <input
+              type="radio"
+              name="action-type"
+              class="form__radio__encrypt form__radio"
+              id="encrypt"
+              checked
+            />
+            <label class="form__label form__label--radio" for="encrypt"
+              >Szyfruj</label
+            >
+          </div>
+          <div class="form__radio-wrapper">
+            <input
+              type="radio"
+              name="action-type"
+              class="form__radio__decrypt form__radio"
+              id="decrypt"
+            />
+            <label class="form__label form__label--radio" for="decrypt"
+              >Odszyfruj</label
+            >
+          </div>
+        </div>
+        <input class="form__btn form__btn--encrypt" type="button" value="Szyfruj" />
+        <input class="form__btn form__btn--reload" type="button" value="Usuń wprowadzony tekst" />
+      </form>
+      <div class="result">
+        <h2 class="result__title"></h1>
+        <p class="result__text"></p>
+      </div>
+    </article>
+    </main>
+    <footer class="footer"> <a class="footer__link" href="https://projekty.pewube.eu">pewube.eu &copy; 2020</a></footer>
+    <script src="./js/script.js" type="module"></script>
+  </body>
+</html>
