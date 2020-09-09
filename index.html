@@ -4,25 +4,26 @@
     <meta charset="UTF-8" />
     <meta
     name="description"
-    content="Szyfr Cezara - szyfrator, deszyfrator"
+    content="Szyfr Cezara - szyfrator, deszyfrator | pewube.eu"
   />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Szyfr Cezara</title>
     <link rel="shortcut icon" href="./img/favpwb.png" type="image/png" />
     <meta name="color-scheme" content="light">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet preconnect">
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <header class="header">
-      <article>
-        <h1 class="header__title">Szyfr Cezara</h1>
-        <p class="header__text">
-          <strong>Szyfr Cezara</strong> (zwany też <em>szyfrem przesuwającym</em>, <em>kodem
-            Cezara</em>  lub <em>przesunięciem Cezariańskim</em>) to jedna z najprostszych technik
+      <details class="header__details">
+        <summary class="header__title">Szyfr Cezara</summary>
+        <blockquote cite="https://pl.wikipedia.org/wiki/Szyfr_Cezara">
+        <p class="header__text">zwany też <em>szyfrem przesuwającym</em>, <em>kodem
+            Cezara</em> lub <em>przesunięciem Cezariańskim</em> to jedna z najprostszych technik
           szyfrowania. Jest to rodzaj szyfru podstawieniowego, w którym każda
           litera tekstu jawnego (niezaszyfrowanego) zastępowana jest inną,
-          oddaloną od niej o stałą liczbę pozycji w alfabecie, literą (<em>szyfr
-            monoalfabetyczny</em>), przy czym kierunek zamiany musi być zachowany. Nie
+          oddaloną od niej o stałą liczbę pozycji w alfabecie, literą <em>(szyfr
+            monoalfabetyczny)</em>, przy czym kierunek zamiany musi być zachowany. Nie
           rozróżnia się przy tym liter dużych i małych.
         </p>
         <p class="header__text">
@@ -33,17 +34,16 @@
           Współcześnie szyfru Cezara używa się z przesunięciem 13 (ROT13),
           będącego prostym i szybkim sposobem na ukrycie treści.
         </p>
-        <p class="header__text">
-          <em>źródło: wikipedia.org</em>
-        </p>
-      </article>
+      </blockquote>
+      </details>
     </header>
+
+
     <main>
       <article class="encrypter">
         <h1 class="encrypter__title">Szyfrator</h1>
       <form class="form">
-        <label class="form__label" for="text">Wprowadź tekst:</label>
-        <textarea class="form__text" name="text" id="text" autofocus></textarea>
+        <textarea class="form__text" name="text" id="text" placeholder="Wprowadź tekst" aria-label="Wprowadź tekst" autofocus></textarea>
 
         <div class="form__options-panel">
           <div class="form__select--wrapper">
@@ -153,7 +153,6 @@
       </div>
     </article>
     </main>
-    <footer class="footer"> <a class="footer__link" href="https://projekty.pewube.eu">pewube.eu &copy; 2020</a></footer>
     <script src="./js/script.js" type="module"></script>
   </body>
 </html>

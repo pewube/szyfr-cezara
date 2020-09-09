@@ -1,5 +1,6 @@
 @import "reset";
 @import "typography";
+@import "variables";
 
 * {
   box-sizing: border-box;
@@ -8,35 +9,56 @@
 body {
   max-width: 720px;
   margin: 0 auto;
-  background-image: url(../img/juliuscaesar.jpg);
+  background-image: url(../img/caesar.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-attachment: fixed;
   background-position: 50% 50%;
+  background-color: $alabaster;
+  color: $dark-lava;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: url(../img/caesar-neg.png);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-image: url(../img/caesar.png);
+  }
 }
 
 .header {
-  padding: 20px 10px;
+  padding: 0 10px 10px 10px;
+
   &__title {
-    padding-bottom: 10px;
-    font-size: 1.3rem;
+    color: $dark-lava;
+    font-size: 1.2rem;
     font-weight: bold;
     text-align: center;
+    line-height: 250%;
+    text-transform: uppercase;
   }
+
   &__text {
-    padding: 5px 0;
-    font-size: 0.9rem;
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 130%;
     text-align: justify;
-    line-height: 120%;
+    hyphens: auto;
   }
 }
 
 .encrypter {
   &__title {
-    padding-bottom: 5px;
-    font-size: 1.3rem;
+    padding-top: 10px;
+    color: $dark-lava;
+    font-size: 1.2rem;
     font-weight: bold;
     text-align: center;
+    text-transform: uppercase;
   }
 }
 
@@ -46,18 +68,22 @@ body {
 
   &__text {
     width: 100%;
-    min-height: 30vh;
+    min-height: 40vh;
     padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ddd;
-    opacity: 0.6;
+    border: 1px solid $pale-silver;
+    border-radius: 5px;
+    background-color: $alabaster-op;
     resize: none;
 
-    font-family: sans-serif;
+    font-family: "Roboto Condensed", sans-serif;
     color: #000;
 
+    &::placeholder {
+      color: $middle-grey;
+    }
+
     &:focus {
-      box-shadow: 0 0 2px 2px rgb(0, 150, 255);
+      box-shadow: 0 0px 20px 5px $melon;
     }
   }
 
@@ -65,9 +91,9 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 0 20px;
     margin: 0 auto;
     max-width: 360px;
-    margin: 20px auto;
     text-align: left;
   }
 
@@ -84,7 +110,13 @@ body {
     width: 50px;
     min-height: 25px;
     margin-left: 5px;
-    vertical-align: middle;
+    border: 1px solid $pale-silver;
+    border-radius: 5px;
+    background-color: $alabaster-op;
+
+    &:focus {
+      box-shadow: 0 0px 10px 5px $melon;
+    }
   }
 
   &__radio-wrapper {
@@ -98,6 +130,8 @@ body {
 
   &__radio {
     margin-top: 1px;
+    background-color: $alabaster-op;
+    color: $dark-lava;
   }
 
   &__label {
@@ -124,82 +158,107 @@ body {
     max-width: 360px;
     padding: 10px;
     margin: 10px auto;
-    border: 2px solid black;
-    background-color: #ddd;
+    border: 2px solid $middle-grey;
+    border-radius: 5px;
+    background-color: $pale-silver;
 
+    font-family: "Roboto Condensed", sans-serif;
+    color: $dark-lava;
+    font-size: 1rem;
     font-weight: bold;
+    text-transform: uppercase;
 
     transition: 0.3s;
 
-    &:hover {
-      color: #fff;
-      background-color: #000;
+    &:active {
+      color: $dark-lava;
+      background-color: transparent;
+      border: 2px solid $pale-silver;
+    }
+  }
+}
+
+@media (min-width: 1368px) {
+  .form {
+    &__radio {
+      &:focus {
+        box-shadow: 0 0px 10px 5px $melon;
+        background-color: $melon;
+      }
     }
 
-    &:active {
-      color: #000;
-      background-color: rgba(0, 0, 0, 0.1);
-      border: 2px solid rgba(255, 255, 255, 0);
+    &__btn {
+      &:hover {
+        color: $pale-silver;
+        background-color: $dark-lava;
+      }
+
+      &:focus {
+        box-shadow: 0 0px 10px 5px $melon;
+      }
     }
   }
 }
 
 .result {
-  width: 100%;
-  padding: 30px 10px;
+  margin: 0 10px 10px 10px;
 
   &__title {
-    padding-bottom: 5px;
-    font-size: 1.1rem;
+    color: $dark-lava;
+    font-size: 1.2rem;
+    line-height: 200%;
     font-weight: bold;
     text-align: center;
+    text-transform: uppercase;
   }
 
   &__text {
-    padding: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
     text-align: justify;
-    hyphens: auto;
+  }
+}
+
+@media (min-width: 1368px) {
+  .result {
+    &__text {
+      padding: 20px;
+      border-radius: 5px;
+      text-align: justify;
+    }
   }
 }
 
 .copy-btn {
   display: block;
-  max-width: 150px;
-  padding: 5px 10px;
-  margin: 5px auto;
-  border: 1px solid #ddd;
-  background-color: rgba(255, 255, 255, 0.3);
+  padding: 0 50px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
 
-  font-size: 0.6rem;
+  font-family: "Roboto Condensed", sans-serif;
+  color: $dark-lava;
+  font-size: 0.8rem;
+  line-height: 300%;
+  font-weight: bold;
   text-transform: uppercase;
 
   transition: 0.3s;
 
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #fff;
-  }
   &:active {
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 1px solid #000;
+    background-color: $pale-silver;
   }
 }
 
-.footer {
-  position: fixed;
-  width: 100%;
-  padding: 10px 0;
-  left: 0;
-  bottom: 0;
-  background-color: #fff;
-
-  font-size: 0.8rem;
-  font-weight: bold;
-  text-align: center;
-
-  &__link {
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #000;
+@media (min-width: 1368px) {
+  .copy-btn {
+    &:hover {
+      background-color: $dark-lava;
+      color: $alabaster;
+    }
+    &:focus {
+      box-shadow: 0 0px 10px 5px $melon;
+    }
   }
 }

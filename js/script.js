@@ -36,19 +36,26 @@ for (const el of radios) {
   });
 }
 
+
+
 btnEncrypt.addEventListener("click", () => {
   if (document.querySelector(".copy-btn")) {
     document.querySelector(".copy-btn").remove();
   }
 
   if (input.value === "") {
-    resultTitle.style.color = "red";
-    resultText.textContent = "";
-    resultTitle.textContent =
+    resultTitle.textContent = "";
+    resultText.style.color = "red";
+    resultText.textContent =
       "Brak tekstu. Wprowadź jakiś tekst do szyfrowania lub deszyfrowania.";
+    resultText.style.backgroundColor = "rgba(244, 243, 238, 0.7)";
+    input.style.border = "2px solid red";
+
   } else {
-    resultTitle.style.color = "#000";
-    resultText.style.color = "#000";
+    resultTitle.style.color = "rgba(70, 63, 58, 1)";
+    resultText.style.color = "rgba(70, 63, 58, 1)";
+    input.style.border = "1px solid rgba(188, 184, 177, 1)";
+    resultText.style.backgroundColor = "transparent";
 
     if (radioEncrypt.checked) {
       resultTitle.textContent = "Zaszyfrowana treść:";
@@ -65,7 +72,8 @@ btnEncrypt.addEventListener("click", () => {
         radioLetterNevermind.checked,
         radioAlphabetEn.checked
       );
-      resultTitle.scrollIntoView();
+      resultText.style.backgroundColor = "rgba(244, 243, 238, 0.7)";
+      resultTitle.scrollIntoView({behavior: "smooth", block: "start"});
       document.querySelector(".copy-btn").addEventListener("click", () => {
         copyToClipboard(resultText.textContent);
       });
@@ -84,8 +92,9 @@ btnEncrypt.addEventListener("click", () => {
         radioLetterNevermind.checked,
         radioAlphabetEn.checked
       );
+      resultText.style.backgroundColor = "rgba(244, 243, 238, 0.7)";
       document.execCommand("copy");
-      resultTitle.scrollIntoView();
+      resultTitle.scrollIntoView({behavior: "smooth", block: "start"});
       document.querySelector(".copy-btn").addEventListener("click", () => {
         copyToClipboard(resultText.textContent);
       });
@@ -104,6 +113,8 @@ selectRot.addEventListener("change", () => {
 input.addEventListener("input", () => {
   resultTitle.textContent = "";
   resultText.textContent = "";
+  input.style.border = "1px solid rgba(188, 184, 177, 1)";
+  resultText.style.backgroundColor = "transparent";
   if (document.querySelector(".copy-btn")) {
     document.querySelector(".copy-btn").remove();
   }
@@ -113,6 +124,8 @@ btnReload.addEventListener("click", () => {
   input.value = "";
   resultTitle.textContent = "";
   resultText.textContent = "";
+  resultText.style.backgroundColor = "transparent";
+  document.body.scrollIntoView({behavior: "smooth", block: "start"});
   if (document.querySelector(".copy-btn")) {
     document.querySelector(".copy-btn").remove();
   }
