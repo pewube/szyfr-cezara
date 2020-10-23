@@ -18,20 +18,9 @@ body {
   color: $dark-lava;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-image: url(../img/caesar-neg.png);
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  body {
-    background-image: url(../img/caesar.png);
-  }
-}
-
 .header {
-  padding: 0 10px 10px 10px;
+  padding: 10px;
+  background-color: $alabaster-op;
 
   &__title {
     color: $dark-lava;
@@ -44,6 +33,7 @@ body {
 
   &__text {
     display: inline-block;
+    padding: 10px;
     font-size: 1rem;
     line-height: 130%;
     text-align: justify;
@@ -52,8 +42,12 @@ body {
 }
 
 .encrypter {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: $alabaster-op;
+
   &__title {
-    padding-top: 10px;
+    padding: 10px;
     color: $dark-lava;
     font-size: 1.2rem;
     font-weight: bold;

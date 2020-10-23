@@ -36,8 +36,6 @@ for (const el of radios) {
   });
 }
 
-
-
 btnEncrypt.addEventListener("click", () => {
   if (document.querySelector(".copy-btn")) {
     document.querySelector(".copy-btn").remove();
@@ -49,12 +47,13 @@ btnEncrypt.addEventListener("click", () => {
     resultText.textContent =
       "Brak tekstu. Wprowadź jakiś tekst do szyfrowania lub deszyfrowania.";
     resultText.style.backgroundColor = "rgba(244, 243, 238, 0.7)";
+    resultText.style.marginBottom = "50vh";
     input.style.border = "2px solid red";
-
   } else {
     resultTitle.style.color = "rgba(70, 63, 58, 1)";
     resultText.style.color = "rgba(70, 63, 58, 1)";
     input.style.border = "1px solid rgba(188, 184, 177, 1)";
+    resultText.style.marginBottom = "0";
     resultText.style.backgroundColor = "transparent";
 
     if (radioEncrypt.checked) {
@@ -73,7 +72,8 @@ btnEncrypt.addEventListener("click", () => {
         radioAlphabetEn.checked
       );
       resultText.style.backgroundColor = "rgba(244, 243, 238, 0.7)";
-      resultTitle.scrollIntoView({behavior: "smooth", block: "start"});
+      resultText.style.marginBottom = "50vh";
+      resultTitle.scrollIntoView({ behavior: "smooth", block: "start" });
       document.querySelector(".copy-btn").addEventListener("click", () => {
         copyToClipboard(resultText.textContent);
       });
@@ -93,8 +93,9 @@ btnEncrypt.addEventListener("click", () => {
         radioAlphabetEn.checked
       );
       resultText.style.backgroundColor = "rgba(244, 243, 238, 0.7)";
+      resultText.style.marginBottom = "50vh";
       document.execCommand("copy");
-      resultTitle.scrollIntoView({behavior: "smooth", block: "start"});
+      resultTitle.scrollIntoView({ behavior: "smooth", block: "start" });
       document.querySelector(".copy-btn").addEventListener("click", () => {
         copyToClipboard(resultText.textContent);
       });
@@ -115,6 +116,7 @@ input.addEventListener("input", () => {
   resultText.textContent = "";
   input.style.border = "1px solid rgba(188, 184, 177, 1)";
   resultText.style.backgroundColor = "transparent";
+  resultText.style.marginBottom = "0";
   if (document.querySelector(".copy-btn")) {
     document.querySelector(".copy-btn").remove();
   }
@@ -125,7 +127,8 @@ btnReload.addEventListener("click", () => {
   resultTitle.textContent = "";
   resultText.textContent = "";
   resultText.style.backgroundColor = "transparent";
-  document.body.scrollIntoView({behavior: "smooth", block: "start"});
+  resultText.style.marginBottom = "0";
+  document.body.scrollIntoView({ behavior: "smooth", block: "start" });
   if (document.querySelector(".copy-btn")) {
     document.querySelector(".copy-btn").remove();
   }
